@@ -11,8 +11,6 @@ var waiting = document.getElementById("waiting");
 var player;
 var playerX;
 
-var possibleKeyMoves = [{u: 38, d: 40}, {u: 87, d: 83}];
-
 var keys = [];
 document.addEventListener("keydown", (e) => {
     keys[e.keyCode] = true;
@@ -62,7 +60,6 @@ submitButton.addEventListener('click', (e) => {
         y: canvas.height/2-h/2,
         w: w,
         h: h,
-        keyMoves: possibleKeyMoves[player]
     });
 });
 
@@ -94,8 +91,8 @@ function draw(){
             text(plr.username, plr.x+25, 50, plr.color, "Arial", 25);
         }
         if(plr.username == username.value) {
-            if(keys[plr.keyMoves.u]) plr.y-=5;
-            if(keys[plr.keyMoves.d]) plr.y+=5;
+            if(keys[38]) plr.y-=5;
+            if(keys[39]) plr.y+=5;
             playersRef.child(plr.username).set(plr);
         }
     }
