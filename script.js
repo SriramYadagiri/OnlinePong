@@ -51,7 +51,8 @@ submitButton.addEventListener('click', (e) => {
     waiting.style.display = "block";
     playerCountRef.set(playerCount+1);
     if(playerCount<2)playerX = 0;
-    else playerX = canvas.width-w;
+    else if(players[0].x == 0)playerX = canvas.width-w;
+    else playerX = 0;
     player = playerCount-1; 
     playersRef.child(username.value).set({
         username: username.value,
