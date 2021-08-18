@@ -92,7 +92,7 @@ function draw(){
         }
         if(plr.username == username.value) {
             if(keys[38]) plr.y-=5;
-            if(keys[39]) plr.y+=5;
+            if(keys[40]) plr.y+=5;
             playersRef.child(plr.username).set(plr);
         }
     }
