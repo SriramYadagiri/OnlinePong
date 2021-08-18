@@ -74,7 +74,7 @@ function draw(){
     if(ball.x<0) {
         text(players[1].username + " Has Won!", canvas.width/2, canvas.height/2-200, players[0].color, "Arial", 25,);
         cancelAnimationFrame(loop);
-        setTimeout(disconnected, 2000);
+        setTimeout(disconnected, 1750);
     } else if(ball.x+ball.w>canvas.width) {
         text(players[0].username + " Has Won!", canvas.width/2, canvas.height/2, players[1].color, "Arial", 25,);
         cancelAnimationFrame(loop);
