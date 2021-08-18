@@ -74,11 +74,11 @@ function draw(){
     if(ball.x<0) {
         text(players[1].username + " Has Won!", canvas.width/2, canvas.height/2-200, players[0].color, "Arial", 25,);
         cancelAnimationFrame(loop);
-        setTimeout(() => {window.location.reload()}, 2000);
+        setTimeout(() => {disconnected, 2000);
     } else if(ball.x+ball.w>canvas.width) {
         text(players[0].username + " Has Won!", canvas.width/2, canvas.height/2, players[1].color, "Arial", 25,);
         cancelAnimationFrame(loop);
-        setTimeout(() => {window.location.reload()}, 2000);
+        setTimeout(() => {disconnected, 2000);
     }
     if(ball.y<=0 || ball.y+ball.h>=canvas.height)ballSet("vy", ball.vy*-1);
     rect(ball.x, ball.y, ball.w, ball.w, "white", true);
@@ -117,16 +117,7 @@ playersRef.on('child_changed', snapshot => {
 });
 
 playersRef.on('child_removed', snapshot => {
-    var player = snapshot.val();
-    for(var i = 0; i<players.length; i++) {
-        if(players[i].username == player.username){
-            players.splice(i, 1);
-            break;
-        }
-    }
-    waiting.style.display = "block";
-    canvas.style.display = "none";
-    cancelAnimationFrame(loop);
+    window.location.reload();
 })
 
 var objKeys = Object.keys(ball);
