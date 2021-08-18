@@ -53,7 +53,6 @@ submitButton.addEventListener('click', (e) => {
     if(playerCount<2)playerX = 0;
     else if(players[0].x == 0)playerX = canvas.width-w;
     else playerX = 0;
-    player = playerCount-1; 
     playersRef.child(username.value).set({
         username: username.value,
         color: playerColor.value,
