@@ -128,9 +128,9 @@ playersRef.on('child_removed', snapshot => {
     cancelAnimationFrame(loop);
 })
 
-var keys = Object.keys(ball);
-for(var i = 0; i<keys.length; i++) {
-    ballRef.child(keys[i]).on("value", snapshot => {
+var objKeys = Object.keys(ball);
+for(var i = 0; i<objKeys.length; i++) {
+    ballRef.child(objKeys[i]).on("value", snapshot => {
         ball[snapshot.key] = snapshot.val();
     })
 }
